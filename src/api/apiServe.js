@@ -9,7 +9,7 @@ export default {
     // return post123('/sys/login', params)
   },
   getInfo(params){
-    return get('api/user/getUserInfo', params)
+    return post('api/user/getUserInfo', params)
   },
   //登录  发送短信
   sendmsg(params) {

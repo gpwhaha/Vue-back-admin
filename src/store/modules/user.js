@@ -51,7 +51,7 @@ const actions = {
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       console.log('token1----',state.name);
-      apiServe.getInfo(state.token).then(response => {
+      apiServe.getInfo({token:state.token}).then(response => {
         const { data } = response
 
         if (!data) {
