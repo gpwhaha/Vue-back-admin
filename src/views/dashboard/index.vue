@@ -6,14 +6,19 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
+import mixn from "@/common/mixn";
 export default {
   name: 'Dashboard',
+  mixins:[mixn],
   computed: {
     ...mapGetters([
       'name'
     ])
-  }
+  },
+  created() {
+    this.selectPage()
+  },
+  methods:{},
 }
 </script>
 
