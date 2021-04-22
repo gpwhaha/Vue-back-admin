@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <div class="dashboard-text" v-model="count" v-check="{count}">name: {{ name }}</div>
+    <div @click="updata">++++</div>
   </div>
 </template>
 
@@ -15,10 +16,19 @@ export default {
       'name'
     ])
   },
+  data(){
+    return{
+      count:1
+    }
+  },
   created() {
     this.selectPage()
   },
-  methods:{},
+  methods:{
+    updata(){
+      this.count += 1
+    }
+  },
 }
 </script>
 
