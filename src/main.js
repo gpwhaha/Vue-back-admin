@@ -1,10 +1,14 @@
 import Vue from 'vue'
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
-
+import axios from 'axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
+// import echarts from 'echarts';
+const echarts = require("echarts");
+// 引入全局的样式文件
+import './assets/css/global.css'
 
 import '@/styles/index.scss' // global css
 
@@ -16,6 +20,13 @@ import '@/icons' // icon
 import '@/permission' // permission control
 
 import "@/utils/directive";
+
+// import VueSocketIO from 'vue-socket.io'
+// Vue.use(new VueSocketIO({
+//   debug: true,
+//   connection: 'localhost:9528',
+//   //socket地址,连接后直接触发后台connection事件
+// }))
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -33,7 +44,8 @@ if (process.env.NODE_ENV === 'production') {
 Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
-
+Vue.prototype.$echarts = echarts;
+Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 
 new Vue({
